@@ -1,0 +1,48 @@
+{
+  "name": "api-dialogflow",
+  "version": "1.0.0",
+  "description": "Microserviço de Integração com DialogFlow",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon src/server.js",
+    "dev:debug": "nodemon --inspect src/server.js",
+    "build": "sucrase ./src -d ./dist --transforms imports",
+    "start": "node dist/server.js"
+  },
+  "author": "Allan Teotonio",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "nodemon": "^2.0.2",
+    "prettier": "^1.19.1",
+    "sequelize-cli": "^5.5.1",
+    "sucrase": "^3.10.1"
+  },
+  "dependencies": {
+    "@sentry/node": "^5.10.2",
+    "actions-on-google": "^2.12.0",
+    "aws-sdk": "^2.605.0",
+    "axios": "^0.19.2",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dialogflow-fulfillment": "^0.6.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "graphql-request": "^1.8.2",
+    "json-to-graphql-query": "^2.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.25.1",
+    "multer": "^1.4.2",
+    "multer-s3": "^2.9.0",
+    "mysql2": "^2.0.2",
+    "pg": "^7.15.1",
+    "sequelize": "^5.21.3",
+    "youch": "^2.0.10",
+    "yup": "^0.27.0"
+  }
+}

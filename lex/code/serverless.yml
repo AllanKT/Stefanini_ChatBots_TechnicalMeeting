@@ -1,0 +1,10 @@
+
+service: technical-meeting-botlex
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+functions:
+  main:
+    handler: app/handler.main

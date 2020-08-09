@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+
+  dialogflow_ap:
+    build: ./
+    container_name: "dialogflow_ap"
+    env_file:
+      - ./code/.env
+    ports:
+      - "3000:80"
+    # volumes:
+    #   - ./code/app:/app
