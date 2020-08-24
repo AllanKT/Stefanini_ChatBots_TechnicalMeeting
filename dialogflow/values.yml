@@ -1,0 +1,5 @@
+envs:
+ PORT: 80
+ NODE_ENV: development
+ TZ: America/Sao_Paulo
+ VALIDATION_HOST: https://api-acao.dev.predict-systems.com/api/validation/

@@ -4,11 +4,10 @@ import env from '../../config/variable';
 class CreateTicket {
   async run(data) {
     try {
-      const params = data.queryResult.outputContexts.filter(item => {
-        if (item.name.endsWith('criandochamado-followup')) {
-          return item.parameters;
-        }
-      })[0];
+      const params = data;
+      if (data.confirm === 'não') {
+        return { response: "Ok! posso lhe ajudar em mais alguma coisa? Você quer abrir ou consultar um chamado?" }
+      }
 
       const resp = await axios.post(
         `${env.ZAMMAD_HOST}api/v1/tickets`,
@@ -16,12 +15,12 @@ class CreateTicket {
           title: "Chamado aberto vi Bot DialogFlow",
           group: "Users",
           customer: "backoffice@inlira.com.br",
-          cpf: params.parameters.Cpf,
-          project: params.parameters.Projetos,
-          request_call: params.parameters.Chamado,
+          cpf: params.cpf,
+          project: params.project,
+          request_call: params.tickets,
           article: {
             subject: "Chamado aberto vi Bot DialogFlow",
-            body: params.parameters.Message,
+            body: params.message,
           }
         },
         {
@@ -32,12 +31,12 @@ class CreateTicket {
       )
 
       return {
-        fulfillmentText: `Chamado Criado com sucesso! o ID do seu ticket é ${resp.data.id}.`,
+        response: `Chamado Criado com sucesso! o ID do seu ticket é ${resp.data.id}.`,
       };
     } catch(err) {
       console.error(err)
       return {
-        fulfillmentText: "Desculpe, parece que houve um erro ao tentar fazer esse procedimento. Por favor, tente mais tarde novamente."
+        response: "Desculpe, parece que houve um erro ao tentar fazer esse procedimento. Por favor, tente mais tarde novamente."
       }
     }
   }

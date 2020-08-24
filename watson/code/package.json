@@ -1,7 +1,7 @@
 {
-  "name": "api-dialogflow",
+  "name": "api-watson",
   "version": "1.0.0",
-  "description": "Microserviço de Integração com DialogFlow",
+  "description": "Microserviço de Integração com Watson",
   "main": "index.js",
   "scripts": {
     "test": "nodemon src/server.js",
